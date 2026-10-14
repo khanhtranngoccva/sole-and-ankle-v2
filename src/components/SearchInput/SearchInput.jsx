@@ -26,6 +26,9 @@ const Input = styled.input`
   padding-left: 24px;
   font-size: 0.875rem;
   color: ${COLORS.gray[100]};
+  line-height: 1;
+  padding-top: 6px;
+  padding-bottom: 5px;
   outline-offset: 4px;
 
   &::placeholder {

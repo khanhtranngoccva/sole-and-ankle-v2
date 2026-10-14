@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import { COLORS, WEIGHTS } from '../../constants';
 
-const Sidebar = () => {
+const Sidebar = ({ ...delegated }) => {
   return (
-    <Wrapper>
+    <Wrapper {...delegated}>
       <Link href="/lifestyle">Lifestyle</Link>
       <Link href="/jordan">Jordan</Link>
       <ActiveLink href="/running">Running</ActiveLink>
@@ -23,7 +23,9 @@ const Sidebar = () => {
   );
 };
 
-const Wrapper = styled.aside``;
+const Wrapper = styled.aside`
+  
+`;
 
 const Link = styled.a`
   display: block;
