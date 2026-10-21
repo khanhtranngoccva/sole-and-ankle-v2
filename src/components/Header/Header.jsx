@@ -13,7 +13,9 @@ const Header = () => {
       <SuperHeader />
       <MainHeader>
         <MainHeaderContent>
-          <LogoItem />
+          <SideItem>
+            <LogoItem />
+          </SideItem>
           <Nav>
             <NavLink href="/sale">Sale</NavLink>
             <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -22,6 +24,7 @@ const Header = () => {
             <NavLink href="/kids">Kids</NavLink>
             <NavLink href="/collections">Collections</NavLink>
           </Nav>
+          <SideItem />
         </MainHeaderContent>
       </MainHeader>
     </header>
@@ -54,6 +57,7 @@ const MainHeader = styled.div`
 const MainHeaderContent = styled.div`
   position: relative;
   display: flex;
+  align-items: baseline;
 
   // This allows putting the nav links to be put in the center. 
   // Since enlarging the global font size will cause the links to no longer fit into the container if a fixed-width layout constraint is set, the constraint has to be based on rem units instead of px units.
@@ -69,14 +73,11 @@ const Nav = styled.nav`
 `;
 
 const LogoItem = styled(Logo)`
-  margin-inline-end: 48px;
+  margin-inline-end: 48px; 
+`;
 
-  // These declarations allow the logo to not affect the nav links' positioning, 
-  // allowing them to be put in the center.
-  @media (min-width: 80rem) {
-    position: absolute;
-    left: 0;
-  }
+const SideItem = styled.div`
+  flex: 1 1 0;
 `;
 
 const NavLink = styled.a`
