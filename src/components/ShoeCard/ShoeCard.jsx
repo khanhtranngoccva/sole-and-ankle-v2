@@ -35,6 +35,7 @@ const ShoeCard = ({
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
+          {variant !== "default" && <SpecialOfferBadge variant={variant} />}
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
@@ -49,6 +50,39 @@ const ShoeCard = ({
     </Link>
   );
 };
+
+const SpecialOfferBadge = ({
+  variant
+}) => {
+  let text = "";
+  switch (variant) {
+    case "on-sale": {
+      text = "Sale!"
+      break;
+    }
+    case "new-release": {
+      text = "Just Released!"
+      break;
+    }
+  }
+  return (
+    <SpecialOfferBadgeWrapper variant={variant}>
+      {text}
+    </SpecialOfferBadgeWrapper>
+  )
+};
+
+const SpecialOfferBadgeWrapper = styled.span`
+  background: ${props => props.variant === "on-sale" ? COLORS.primary : COLORS.secondary};
+  color: ${COLORS.white};
+  padding: 7px 9px 9px 11px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: block;
+  position: absolute;
+  right: -4px;
+  top: 19px;
+`;
 
 const Link = styled.a`
   text-decoration: none;
