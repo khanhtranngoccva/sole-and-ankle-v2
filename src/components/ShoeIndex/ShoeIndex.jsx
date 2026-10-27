@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  align-items: baseline;
 
   /* Laptop layout specs */
   @media (min-width: 1024px) {
